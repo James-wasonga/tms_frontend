@@ -1,0 +1,133 @@
+.ticket-page {
+    margin-top: 100px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: #f5f5f5;
+    min-height: 80vh;
+  }
+  
+  .ticket-container {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    max-width: 600px;
+    width: 100%;
+    overflow: hidden;
+    border-top: 6px solid var(--app-color);
+  }
+  
+  .ticket-header {
+    background: linear-gradient(135deg, var(--app-color), #1a7a45);
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+  }
+  .ticket-header h3 { margin: 8px 0 4px; }
+  .ticket-number { font-size: 13px; opacity: 0.8; }
+  
+  .ticket-route {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 30px;
+    background: #f9f9f9;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .route-point {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+  }
+  .route-point div { display: flex; flex-direction: column; }
+  .route-point small { font-size: 10px; color: #888; text-transform: uppercase; }
+  .route-point strong { font-size: 16px; }
+  
+  .route-divider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+    padding: 0 15px;
+  }
+  .route-line {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, #27ae60, #ccc);
+  }
+  
+  .ticket-details {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-bottom: 1px dashed #ddd;
+  }
+  .ticket-detail-row {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+  }
+  .ticket-detail-row div { display: flex; flex-direction: column; }
+  .ticket-detail-row small { font-size: 11px; color: #888; }
+  .ticket-detail-row strong { font-size: 15px; }
+  
+  .ticket-seats {
+    padding: 20px;
+    border-bottom: 1px dashed #ddd;
+  }
+  .ticket-seats h5 { color: var(--app-color); margin-bottom: 12px; }
+  
+  .ticket-qr {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #eee;
+  }
+  .qr-placeholder {
+    width: 100px;
+    height: 100px;
+    border: 3px solid var(--app-color);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .qr-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+  }
+  .qr-inner span { font-size: 20px; color: var(--app-color); }
+  .qr-inner small { font-size: 9px; color: #888; }
+  
+  .ticket-status {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .ticket-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  @media print {
+    .ticket-actions { display: none; }
+    .ticket-page { margin-top: 0; background: white; }
+  }
+  

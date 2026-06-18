@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --app-color: #16a34a;
+  --app-faded-color: #bbf7d0;
+  --primary-color: #14532d;
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --bg-light: #f8fafc;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: var(--text-dark);
+  background: #ffffff;
+}
+
+.buy-ticket-button {
+  background: linear-gradient(135deg,#16a34a,#22c55e) !important;
+  border: none !important;
+  font-weight: 700 !important;
+  padding: 10px 24px !important;
+  border-radius: 10px !important;
+  transition: all 0.25s !important;
+  box-shadow: 0 4px 14px rgba(22,163,74,0.35) !important;
+}
+.buy-ticket-button:hover { transform: translateY(-1px) !important; }
+
+.input, .react-datepicker-wrapper { width: 100%; }
+.react-datepicker-popper { z-index: 200 !important; }
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #16a34a; border-radius: 4px; }

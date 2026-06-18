@@ -1,0 +1,388 @@
+{
+	"info": {
+		"_postman_id": "25cd0cef-2ec8-4b49-b1e9-7c1d9e8dd8ad",
+		"name": "TRANSPORT MANAGEMENT SYSTEM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7701929"
+	},
+	"item": [
+		{
+			"name": "BUSES",
+			"item": [
+				{
+					"name": "ALL BUS-AVAILABLE",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE BUSES",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYzODk4NTZlZjgxZGZmODM5MTg1YjIiLCJuYW1lIjoiQURNSU4gRE9FIiwiZW1haWwiOiJhZG1pbmRvZUBnbWFpbC5jb20iLCJyb2xlIjoib3duZXIiLCJyZWZyZXNoX2hhc2giOiJiZjYyYmVkMC04Yzg2LTExZWUtOTdjZC0zNThmNTczZGI5NTIiLCJhdmF0YXIiOm51bGwsImlhdCI6MTcwMTAyMjEyMiwiZXhwIjoxNzAxMDI1NzIyfQ.xHyM_lcyV08dMHSZSl7OVpq4ONDgJyhUImlgzRgPy0I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"max mombasa\",\n    \"slug\": \"max\",\n    \"type\":\"AC\",\n    \"busNumber\": \"A1\",\n    \"fare\": 1000,\n     \"boardingPoints\": [\"kisumu\", \"nairobi\", \"mombasa\"] ,\n     \"droppingPoints\":[\"kisumu\", \"nairobi\", \"mombasa\"] ,\n     \"numberOfSeats\": 32,\n     \"description\": \"max mombasa ac 32 seater bus\",\n    \"journeyDate\" : \"2023-11-26T17:01:25.805Z\",\n      \"startLocation\": \"65638d7e6ef81dff839185bf\",\n    \"endLocation\":\"65638dab6ef81dff839185c2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "tms-2k4s.onrender.com/api/bus/",
+							"host": [
+								"tms-2k4s",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"bus",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL BUSES",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "tms-2k4s.onrender.com/api/bus/",
+							"host": [
+								"tms-2k4s",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"bus",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OWNER BUS AVAILABLE",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "tms-2k4s.onrender.com/api/bus/busSlug",
+							"host": [
+								"tms-2k4s",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"bus",
+								"busSlug"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ALL BUS UNAVAILABLE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "tms-2k4s.onrender.com/api/bus/all-bus-unavailable",
+							"host": [
+								"tms-2k4s",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"bus",
+								"all-bus-unavailable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SEARCH BUS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "tms-2k4s.onrender.com/api/bus/search",
+							"host": [
+								"tms-2k4s",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"bus",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "FILTER BUS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "tms-2k4s.onrender.com/api/bus/filter",
+							"host": [
+								"tms-2k4s",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"bus",
+								"filter"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TRAVELS",
+			"item": [
+				{
+					"name": "GET TRAVELS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "tms-2k4s.onrender.com/api/travels",
+							"host": [
+								"tms-2k4s",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"travels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE TRAVELS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "tms-2k4s.onrender.com/api/travels",
+							"host": [
+								"tms-2k4s",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"travels"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "SIGNUP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"John doe2\",\n    \"email\":\"johndoe2@gmail.com\",\n    \"phone\": \"0705060403\",\n    \"password\": \"password\",\n    \"address\": \"naorobi\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "tms-2k4s.onrender.com/api/auth-user/signup",
+							"host": [
+								"tms-2k4s",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth-user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"email\":\"johndoe2@gmail.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "tms-2k4s.onrender.com/api/auth-user/signin",
+							"host": [
+								"tms-2k4s",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth-user",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OWNER SIGNIN",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "OWNER SIGNUP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"ADMIN DOE\",\n    \"email\":\"admindoe@gmail.com\",\n    \"phone\": \"0705060403\",\n    \"password\": \"password\",\n    \"address\": \"nairobi\",\n    \"citizenshipNumber\":\"32323243\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "tms-2k4s.onrender.com/api/auth-owner/signup",
+							"host": [
+								"tms-2k4s",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"auth-owner",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LOCATION",
+			"item": [
+				{
+					"name": "LOCATION",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTYzOGQ1YjZlZjgxZGZmODM5MTg1YmIiLCJuYW1lIjoiQURNSU4gc3VwZXIiLCJlbWFpbCI6ImFkbWluc3VwZXJAZ21haWwuY29tIiwicm9sZSI6InN1cGVyYWRtaW4iLCJyZWZyZXNoX2hhc2giOiIwODMwODVmMC04Yzg5LTExZWUtOTdjZC0zNThmNTczZGI5NTIiLCJhdmF0YXIiOm51bGwsImlhdCI6MTcwMTAyMzA4MSwiZXhwIjoxNzAxMDI2NjgxfQ.Kb4H0qyVjF42VqCU2VekeoI33gbDrhxaOER46-NIJsM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Mombasa town\",\n    \"district\":\"Mombasa\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "tms-2k4s.onrender.com/api/locations",
+							"host": [
+								"tms-2k4s",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"locations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET LOCATIONS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "tms-2k4s.onrender.com/api/locations",
+							"host": [
+								"tms-2k4s",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"locations"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

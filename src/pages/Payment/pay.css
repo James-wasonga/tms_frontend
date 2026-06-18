@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=DM+Sans:wght@400;500&display=swap');
+
+.pay-page { margin-top: 100px; min-height: 80vh; background: #f8fafc; font-family: 'DM Sans', sans-serif; }
+
+.pay-page-header { background: white; border-bottom: 1px solid #f1f5f9; padding: 16px 32px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.pay-page-header-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+.pay-back-btn { display: flex; align-items: center; gap: 6px; background: #f8fafc; border: 1.5px solid #e2e8f0; color: #475569; padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: 'DM Sans', sans-serif; transition: all 0.2s; }
+.pay-back-btn:hover { border-color: #16a34a; color: #16a34a; }
+
+.pay-page-title { display: flex; align-items: center; gap: 12px; }
+.pay-page-title h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; font-weight: 800; color: #0f172a; margin: 0; }
+.pay-page-title p { font-size: 13px; color: #64748b; margin: 0; }
+
+.pay-secure-badge { font-size: 13px; font-weight: 600; color: #16a34a; background: #f0fdf4; padding: 6px 14px; border-radius: 100px; border: 1px solid #bbf7d0; }
+
+.pay-page-body { max-width: 1100px; margin: 32px auto; padding: 0 32px 60px; }
+
+@media (max-width: 640px) { .pay-page-header { padding: 12px 16px; } .pay-page-body { padding: 0 16px 40px; } .pay-secure-badge { display: none; } }

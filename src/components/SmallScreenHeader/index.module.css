@@ -1,0 +1,29 @@
+.small_screen{
+        width:100%;
+        height:40px;
+        display:flex;
+        flex-direction:row;
+        align-items:center;
+        justify-content:space-between;
+        padding:10px;
+        background-color: var(--secondary-color);
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+        
+}
+
+.icon{
+    width: 30px;
+    height: 30px;
+    color:var(--app-color);
+}
+
+@media(min-width:200px){
+    .small_screen{
+        display: flex;
+    }
+}
+@media(min-width:768px){
+    .small_screen{
+        display: none;
+    }
+}

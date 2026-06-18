@@ -1,0 +1,118 @@
+.pay {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .pay .details {
+    flex: 1;
+    min-width: 250px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.08);
+  }
+  
+  .pay .details h5 {
+    margin-bottom: 15px;
+  }
+  
+  .pay .details .div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 10px;
+    border-radius: 8px;
+    background: #fff;
+    margin-bottom: 8px;
+    border-left: 4px solid var(--app-color);
+  }
+  
+  .pay .details .total-fare {
+    font-size: 18px;
+    margin-top: 12px;
+    color: #27ae60;
+  }
+  
+  .pay .payment {
+    flex: 1;
+    min-width: 280px;
+  }
+  
+  .pay .payment .payment-instruction {
+    background: #e8f5e9;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-left: 4px solid #27ae60;
+  }
+  
+  .pay .user-data {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .pay .user-data input {
+    height: 44px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 0 12px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  
+  .pay .user-data input:focus {
+    border-color: var(--app-color);
+  }
+  
+  /* Stripe */
+  .stripe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .stripe-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .stripe-field label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+  }
+  
+  .stripe-field input {
+    height: 42px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 0 12px;
+    font-size: 15px;
+    outline: none;
+  }
+  
+  .stripe-field input:focus {
+    border-color: #6772e5;
+    box-shadow: 0 0 0 2px rgba(103,114,229,0.2);
+  }
+  
+  /* PayPal */
+  .paypal-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  

@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap');
+.contact-page { font-family: 'DM Sans', sans-serif; margin-top: 80px; }
+
+.contact-hero {
+  background: linear-gradient(135deg,#0f172a,#1e3a28,#14532d);
+  padding: 80px max(40px,8vw) 60px; text-align: center;
+}
+.contact-label { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #4ade80; margin-bottom: 16px; }
+.contact-hero h1 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(30px,4vw,50px); font-weight: 800; color: white; letter-spacing: -1px; margin: 0 0 16px; }
+.contact-accent { color: #4ade80; }
+.contact-hero p { font-size: 17px; color: #94a3b8; max-width: 450px; margin: 0 auto; line-height: 1.7; }
+
+.contact-cards {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 20px; max-width: 1200px; margin: -40px auto 0; padding: 0 max(24px,4vw);
+  position: relative; z-index: 10;
+}
+.contact-info-card {
+  background: white; border-radius: 20px; padding: 28px 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1); border: 1.5px solid #f1f5f9;
+  transition: all 0.3s;
+}
+.contact-info-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(22,163,74,0.12); border-color: rgba(22,163,74,0.3); }
+.ci-icon { width: 48px; height: 48px; background: linear-gradient(135deg,#dcfce7,#bbf7d0); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #14532d; margin-bottom: 14px; }
+.contact-info-card h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; font-weight: 700; color: #0f172a; margin: 0 0 6px; }
+.contact-info-card p { font-size: 14px; color: #475569; margin: 0 0 10px; }
+.contact-info-card a { font-size: 13px; color: #16a34a; text-decoration: none; font-weight: 600; }
+.contact-info-card a:hover { text-decoration: underline; }
+
+.contact-main {
+  max-width: 1200px; margin: 60px auto; padding: 0 max(24px,4vw);
+  display: grid; grid-template-columns: 1fr 380px; gap: 40px; align-items: start;
+}
+
+.contact-form-wrap { background: white; border-radius: 24px; padding: 40px; border: 1.5px solid #f1f5f9; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+.contact-form-wrap h2 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 26px; font-weight: 800; color: #0f172a; margin: 0 0 8px; }
+.contact-form-wrap > p { color: #64748b; font-size: 15px; margin: 0 0 28px; }
+
+.contact-error { background: #fef2f2; border: 1px solid #fecaca; color: #dc2626; padding: 12px 16px; border-radius: 10px; margin-bottom: 20px; font-size: 14px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.form-field label { font-size: 13px; font-weight: 600; color: #374151; }
+.form-field label span { color: #dc2626; }
+.form-field input, .form-field select, .form-field textarea {
+  border: 1.5px solid #e2e8f0; border-radius: 10px; padding: 12px 14px;
+  font-size: 14px; font-family: 'DM Sans', sans-serif; outline: none;
+  color: #374151; transition: border-color 0.2s; background: #fafafa;
+}
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+  border-color: #16a34a; background: white; box-shadow: 0 0 0 3px rgba(22,163,74,0.1);
+}
+.form-field textarea { resize: vertical; min-height: 120px; }
+.form-field select { appearance: none; cursor: pointer; }
+
+.contact-send-btn {
+  display: flex; align-items: center; gap: 8px;
+  background: linear-gradient(135deg,#16a34a,#22c55e); color: white; border: none;
+  padding: 14px 32px; border-radius: 12px; font-size: 15px; font-weight: 700;
+  cursor: pointer; transition: all 0.25s; box-shadow: 0 4px 16px rgba(22,163,74,0.35);
+  font-family: 'DM Sans', sans-serif; margin-top: 8px;
+}
+.contact-send-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(22,163,74,0.45); }
+.contact-send-btn:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+.spinner { width: 18px; height: 18px; border: 2.5px solid rgba(255,255,255,0.4); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.contact-success { display: flex; flex-direction: column; align-items: center; padding: 48px 20px; text-align: center; gap: 16px; }
+.contact-success h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 24px; font-weight: 800; color: #0f172a; margin: 0; }
+.contact-success p { color: #64748b; margin: 0; }
+.contact-success button { background: #16a34a; color: white; border: none; padding: 12px 28px; border-radius: 10px; font-weight: 600; cursor: pointer; margin-top: 8px; }
+
+.contact-sidebar { display: flex; flex-direction: column; gap: 20px; }
+.contact-sidebar-box { background: white; border-radius: 20px; padding: 28px; border: 1.5px solid #f1f5f9; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+.contact-sidebar-box h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; font-weight: 700; color: #0f172a; margin: 0 0 16px; }
+
+.quick-links { display: flex; flex-direction: column; gap: 12px; }
+.quick-links a { display: flex; align-items: center; gap: 10px; color: #475569; text-decoration: none; font-size: 14px; font-weight: 500; padding: 10px; border-radius: 10px; border: 1px solid #f1f5f9; transition: all 0.2s; }
+.quick-links a:hover { background: #f0fdf4; border-color: rgba(22,163,74,0.2); color: #16a34a; }
+
+.social-links { display: flex; flex-direction: column; gap: 10px; }
+.social-link { display: flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 10px; text-decoration: none; font-size: 14px; font-weight: 600; transition: all 0.2s; }
+.social-link.fb { background: #eff6ff; color: #1d4ed8; } .social-link.fb:hover { background: #dbeafe; }
+.social-link.tw { background: #f0f9ff; color: #0ea5e9; } .social-link.tw:hover { background: #e0f2fe; }
+.social-link.ig { background: #fdf4ff; color: #a21caf; } .social-link.ig:hover { background: #fae8ff; }
+.social-link.wa { background: #f0fdf4; color: #16a34a; } .social-link.wa:hover { background: #dcfce7; }
+
+.contact-map-placeholder { min-height: 160px; background: linear-gradient(135deg,#f0fdf4,#dcfce7) !important; }
+.map-inner { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 140px; text-align: center; gap: 8px; }
+.map-inner p { font-weight: 700; color: #0f172a; margin: 0; font-size: 15px; }
+.map-inner small { color: #64748b; }
+
+@media (max-width: 1024px) { .contact-cards { grid-template-columns: repeat(2,1fr); } .contact-main { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .contact-cards { grid-template-columns: 1fr; margin-top: 20px; } .form-row { grid-template-columns: 1fr; } .contact-form-wrap { padding: 24px; } }

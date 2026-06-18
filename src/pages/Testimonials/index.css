@@ -1,0 +1,105 @@
+.testimonials{
+    width: 60%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    align-items: center;
+    position: relative;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.testimonials::-webkit-scrollbar{
+    display: none;
+}
+
+.testimonials .testimonials-holder{
+    width:100% !important;
+    height: 100%;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.testimonials .testimonials-holder .testimonials-banner {
+    width:100% !important;
+    height: 100%;
+    gap: 10px;
+    overflow-x: auto;
+    display: flex;
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+.testimonials .testimonials-holder::-webkit-scrollbar{
+    display: none;
+}
+
+.testimonials .testimonials-holder .testimonials-banner::-webkit-scrollbar{
+    display: none;
+}
+
+.testimonials .testimonials-holder .testimonials-banner .testimonial{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    flex: 0 0 auto;
+    background-color: #ffffff;
+    padding: 5px;
+}
+
+.testimonials .testimonials-holder .testimonials-banner .testimonial label{
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: var(--app-color);
+    display: flex;
+    gap: 10px;
+}
+
+.testimonials .testimonials-holder .testimonials-banner .testimonial .testimonial-user{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 5px;
+    height: 50px;
+}
+
+.testimonials .testimonials-holder .testimonials-banner .testimonial .testimonial-user img{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    object-fit: cover;
+}
+
+.testimonials .testimonials-holder .testimonials-banner .testimonial .testimonial-user label{
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 0px;
+}
+
+.testimonials .sliders{
+    display: flex;
+    flex-direction: row;
+    gap:5px;
+}
+
+@media(min-width:300px){
+    .testimonials{
+        width: 100%;
+        padding: 5px;
+    }
+}
+
+@media(min-width:600px) {
+    .testimonials{
+        width: 60%;
+        padding: 20px;
+    }
+}

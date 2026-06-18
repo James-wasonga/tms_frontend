@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="name..." class="name"/>
+    <input type="text" placeholder="from..." class="from"/>
+    <input type="text" placeholder="to..." class="to"/>
+    <input type="text" placeholder="price..." class="price"/>
+    <button class="btn" >Create bus</button>
+</body>
+<script>
+    let btn = document.querySelector(".btn");
+    let name = document.querySelector(".name");
+    let from = document.querySelector(".from");
+    let to = document.querySelector(".to");
+    let price = document.querySelector(".price");
+    let bus = {};
+    let url = "https://tms-2k4s.onrender.com/api/bus";
+
+    btn.addEventListener("click",(e)=>{
+        let formData = new FormData();
+        formData.append("name",name.value);
+        formData.append("from",from.value);
+        formData.append("to",to.value);
+        formData.append("price",price.value);
+        bus = {name:name.value,from:from.value,to:to.value,price:price.value}
+        console.log(bus);
+        fetch(url,{
+            method:"post",
+            body:formData,
+            credentials:"include"
+        }).then(req=>req.text()).
+        then(res=>{
+            console.log(res);
+        }).catch(e=>{
+            console.log(e);
+        })
+    })
+    
+</script>
+</html>

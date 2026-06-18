@@ -1,0 +1,58 @@
+.contact-us{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 5px;
+    margin-left: 5%;
+    margin-bottom: 10px;
+    
+}
+
+.contact-us .names{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.contact-us .names input{
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #636060;
+    padding-left: 5px;
+    height: 40px;
+}
+
+.contact-us .email{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-us .email input{
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #636060;
+    padding-left: 5px;
+    height: 40px;
+}
+
+.contact-us .message{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 100px;
+}
+
+.contact-us .message textarea{
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #636060;
+    padding-left: 5px;
+}
