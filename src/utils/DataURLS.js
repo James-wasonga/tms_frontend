@@ -1,5 +1,5 @@
 // export let BASEURL = "http://localhost:8085";
-export let BASEURL = "https://tms-backend-a6kg.onrender.com"; 
+export let BASEURL = "https://tms-backend-a6kg.onrender.com";
 
 let APPURL = "http://localhost:3002";
 
@@ -36,6 +36,7 @@ export const DataURLS = {
 
   // Payments
   mpesaSTK: `${BASEURL}/api/payments/mpesa-stk`,
+  mpesaStatus: `${BASEURL}/api/payments/mpesa-status`,  // ← NEW, used for polling
 };
 
 export const wakeUpBackend = () => {
