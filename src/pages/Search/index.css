@@ -141,4 +141,11 @@
     color: #94a3b8;
   }
   
+  @media (max-width: 768px) {
+
+    .search-bar-strip {
+        position: relative;
+        top: 0;
+    }
   
+  }

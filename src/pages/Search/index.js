@@ -869,6 +869,14 @@ const Search = () => {
     } catch { return ""; }
   };
 
+  const getBusImage = (bus) => {
+    if (bus.image) {
+      return bus.image;
+    }
+  
+    return `/images/buses/${bus.slug}.jpg`;
+  };
+
   const from = ticketInfo.pickupPoint || (params?.pickupPoint !== "all" ? params?.pickupPoint : "");
   const to = ticketInfo.destination || (params?.destinationPoint !== "all" ? params?.destinationPoint : "");
 
@@ -1037,12 +1045,12 @@ const Search = () => {
                 <div className="bus-card" key={i}>
                   <div className="bus-card-img">
                     <img
-                      src={bus.image || "/assets/images/bus.jpg"}
+                      src={getBusImage(bus)}
                       alt={bus.name}
-                      onError={e => {
-                        e.target.style.display = "none";
-                        e.target.parentNode.style.background = "linear-gradient(135deg,#f0fdf4,#dcfce7)";
-                      }}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = "/images/buses/default-bus.jpg";
+                    }}
                     />
                     {bus.type && <span className="bus-type-badge">{bus.type}</span>}
                     {bus.departure_time && (
