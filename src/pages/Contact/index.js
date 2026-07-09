@@ -35,8 +35,8 @@ const Contact = () => {
         <div className="contact-info-card">
           <div className="ci-icon"><FiPhone size={22}/></div>
           <h4>Phone & WhatsApp</h4>
-          <p>+254 712 345 678</p>
-          <a href="tel:+254712345678">Call now →</a>
+          <p>+254 710 733 045</p>
+          <a href="tel:+254710733045">Call now →</a>
         </div>
         <div className="contact-info-card">
           <div className="ci-icon"><FiMail size={22}/></div>
