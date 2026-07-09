@@ -583,7 +583,6 @@ const Home = () => {
       {/* ======= HERO ======= */}
       <section className="hero-section">
         <div className="hero-bg-pattern" />
-        <div className="hero-grid-lines" />
         <div className="hero-inner">
           {/* Left: Copy */}
           <div className="hero-copy">
