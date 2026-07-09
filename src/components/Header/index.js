@@ -510,13 +510,13 @@ const Header = () => {
       <div className="header-topbar">
         <div className="topbar-inner">
           <div className="topbar-left">
-            <a href="tel:+254712345678" className="topbar-item">
-              📞 +254 712 345 678
+            <a href="tel:+254710733045" className="topbar-item">
+              📞 +254 710 733 045
             </a>
-            <span className="topbar-sep" />
+            {/* <span className="topbar-sep" />
             <a href="mailto:support@movelink.co.ke" className="topbar-item">
               ✉ support@movelink.co.ke
-            </a>
+            </a> */}
           </div>
           <div className="topbar-right">
             {userData.loggedIn ? (
