@@ -7,8 +7,8 @@ export const DataURLS = {
   // Auth - User
   userSignUp: `${BASEURL}/api/auth-user/signup`,
   userSignIn: `${BASEURL}/api/auth-user/signin`,
-  userForgotPassword: `${BASEURL}/api/api-user/forgot-password`,
-  userResetPassword: `${BASEURL}/api/api-user/reset-password`,
+  userForgotPassword: `${BASEURL}/api/auth-user/forgot-password`,
+  userResetPassword: `${BASEURL}/api/auth-user/reset-password`,
   editProfile: `${BASEURL}/api/api-user/update`,
   editPassword: `${BASEURL}/api/api-user/change-password`,
 
