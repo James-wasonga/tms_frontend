@@ -133,10 +133,6 @@
     width: 100%;
   }
   
-  /* @media print {
-    .ticket-actions { display: none; }
-    .ticket-page { margin-top: 0; background: white; }
-  } */
   
   @media print {
     /* Hide all site layout elements (headers, footers, floating tools) */
