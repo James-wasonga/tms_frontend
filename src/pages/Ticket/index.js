@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { CartContext, HeaderFooterContext, UserContext } from '../../contexts';
 import { Button } from 'react-bootstrap';
 import { FaBus, FaMapMarkerAlt, FaCalendarAlt, FaTicketAlt, FaUser, FaDownload, FaHome } from 'react-icons/fa';
-import './index.css';
+import { QRCodeSVG } from 'qrcode.react';
+import './index.css';   
 
 const TicketConfirmation = () => {
   const [cartContext] = useContext(CartContext);
@@ -17,16 +18,35 @@ const TicketConfirmation = () => {
     window.scroll(0, 0);
   }, []);
 
+  // const formatDate = (dateVal) => {
+  //   if (!dateVal) return 'N/A';
+  //   try {
+  //     return new Date(dateVal).toLocaleDateString('en-KE', {
+  //       weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+  //     });
+  //   } catch { return dateVal; }
+  // };
+
   const formatDate = (dateVal) => {
     if (!dateVal) return 'N/A';
     try {
-      return new Date(dateVal).toLocaleDateString('en-KE', {
-        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+      // Convert string numbers (e.g. "1786568400000") to numeric timestamps
+      const num = Number(dateVal);
+      const dateObj = !isNaN(num) && String(dateVal).trim() !== '' ? new Date(num) : new Date(dateVal);
+      
+      if (isNaN(dateObj.getTime())) return String(dateVal);
+      
+      return dateObj.toLocaleDateString('en-KE', {
+        weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'
       });
-    } catch { return dateVal; }
+    } catch {
+      return String(dateVal);
+    }
   };
 
   const ticketNumber = `TMS-${Date.now().toString().slice(-8)}`;
+
+  const seatsList = cartContext?.seatsInfo || [];
 
   return (
     <div className="ticket-page">
@@ -76,7 +96,7 @@ const TicketConfirmation = () => {
           <div className="ticket-detail-row">
             <FaUser color="#27ae60" />
             <div>
-              <small>Passenger</small>
+              <small>Booked By</small>
               <strong>{userData?.data?.user?.name || 'N/A'}</strong>
             </div>
           </div>
@@ -116,7 +136,7 @@ const TicketConfirmation = () => {
           )}
         </div>
 
-        <div className="ticket-qr">
+        {/* <div className="ticket-qr">
           <div className="qr-placeholder">
             <div className="qr-inner">
               <span>QR</span>
@@ -124,6 +144,68 @@ const TicketConfirmation = () => {
             </div>
           </div>
           <p>Show this ticket to the conductor</p>
+        </div> */}
+
+        <div className="ticket-qr">
+          {seatsList.length > 0 ? (
+            seatsList.map((s, i) => {
+              const seatNum = s.seat || cartContext?.seats?.[i] || 'N/A';
+              const passengerName = s.name || userData?.data?.user?.name || 'Passenger';
+              const passengerId = s.id || 'N/A';
+              const uniqueSeatTicketNo = `${ticketNumber}-S${seatNum}`;
+
+              // Payload string scanned by the conductor's mobile device
+              const qrPayload = JSON.stringify({
+                ticketNo: uniqueSeatTicketNo,
+                passenger: passengerName,
+                idNumber: passengerId,
+                seat: seatNum,
+                from: cartContext?.pickupPoint || 'N/A',
+                to: cartContext?.destination || 'N/A',
+                bus: cartContext?.bus || 'N/A',
+                date: cartContext?.date || 'N/A',
+                status: 'VERIFIED'
+              });
+
+              return (
+                <div className="qr-item" key={i} style={{ textAlign: 'center', marginBottom: '15px' }}>
+                  <div className="qr-card-wrapper" style={{ padding: '12px', background: '#fff', borderRadius: '10px', display: 'inline-block', border: '1.5px solid #e2e8f0' }}>
+                    <QRCodeSVG 
+                      value={qrPayload}
+                      size={130}
+                      level="H"
+                      includeMargin={true}
+                      fgColor="#0f172a"
+                    />
+                  </div>
+                  <div style={{ marginTop: '6px' }}>
+                    <small style={{ display: 'block', fontWeight: 'bold', color: '#16a34a' }}>
+                      Seat {seatNum} — {passengerName}
+                    </small>
+                    <small style={{ color: '#64748b', fontSize: '11px' }}>{uniqueSeatTicketNo}</small>
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <div className="qr-card-wrapper" style={{ padding: '12px', background: '#fff', borderRadius: '10px', display: 'inline-block', border: '1.5px solid #e2e8f0' }}>
+              <QRCodeSVG 
+                value={JSON.stringify({
+                  ticketNo: ticketNumber,
+                  passenger: userData?.data?.user?.name || 'Passenger',
+                  from: cartContext?.pickupPoint,
+                  to: cartContext?.destination,
+                  status: 'VERIFIED'
+                })}
+                size={130}
+                level="H"
+                includeMargin={true}
+              />
+            </div>
+          )}
+          <p className="scan-text" style={{ marginTop: '8px', fontSize: '12px', color: '#64748b' }}>
+            Show this unique QR code to the conductor upon boarding
+          </p>
         </div>
 
         <div className="ticket-status">
@@ -131,7 +213,7 @@ const TicketConfirmation = () => {
         </div>
       </div>
 
-      <div className="ticket-actions">
+      <div className="ticket-actions no-print">
         <Button variant="success" onClick={() => window.print()}>
           <FaDownload /> Print / Download Ticket
         </Button>
