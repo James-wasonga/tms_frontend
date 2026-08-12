@@ -22,7 +22,7 @@
   .ticket-header {
     background: linear-gradient(135deg, var(--app-color), #1a7a45);
     color: white;
-    padding: 25px 20px;
+    padding: 14px 20px;
     text-align: center;
   }
   .ticket-header h3 { margin: 8px 0 4px; }
@@ -33,7 +33,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 20px 30px;
+    padding: 12px 30px;
     background: #f9f9f9;
     border-bottom: 1px solid #eee;
   }
@@ -66,7 +66,7 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     border-bottom: 1px dashed #ddd;
   }
   .ticket-detail-row {
@@ -80,13 +80,13 @@
   .ticket-detail-row strong { font-size: 15px; }
   
   .ticket-seats {
-    padding: 20px;
+    padding: 12px 20px;
     border-bottom: 1px dashed #ddd;
   }
   .ticket-seats h5 { color: var(--app-color); margin-bottom: 12px; }
   
   .ticket-qr {
-    padding: 20px;
+    padding: 12px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -119,7 +119,7 @@
   .qr-inner small { font-size: 9px; color: #888; }
   
   .ticket-status {
-    padding: 15px;
+    padding: 10px 15px;
     text-align: center;
   }
   
