@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { useState, useMemo, useEffect } from 'react';
 import { CartContext, HeaderFooterContext, UserContext } from './contexts';
 import { Footer, Header, FloatingComponent, BottomSection } from './components';
+import { useAutoLogout } from './hooks/useAutoLogout';
 import Home from './pages/Home';
 import About from './pages/About';
 import FAQ from './pages/FAQ';
@@ -17,6 +18,11 @@ import * as Profile from './pages/Profile';
 import * as Auth from './pages/Auth';
 import NotFound from './pages/NotFound';
 import TicketConfirmation from './pages/Ticket';
+
+const AutoLogoutWatcher = () => {
+  useAutoLogout();
+  return null;
+};
 
 const App = () => {
   const [cartData, setCartData] = useState({
@@ -45,6 +51,7 @@ const App = () => {
       <UserContext.Provider value={userDataProvider}>
         <HeaderFooterContext.Provider value={headerFooterProvider}>
           <Router>
+            <AutoLogoutWatcher />
             <Header />
             <Routes>
               {/* Public pages */}
