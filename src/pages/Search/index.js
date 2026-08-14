@@ -209,14 +209,39 @@ const Search = () => {
       filtered = filtered.filter(bus => bus.numberOfSeats === filter.seats);
     }
 
-    // 7. Sort by departure time (earliest first)
-    filtered.sort((a, b) => {
-      if (!a.departure_time) return 1;
-      if (!b.departure_time) return -1;
-      return a.departure_time.localeCompare(b.departure_time);
-    });
+  // Helper function to convert departure time strings ("01:00 PM", "13:00") into minutes
+  const getMinutesFromTime = (timeStr) => {
+    if (!timeStr) return 0;
+    const match = timeStr.match(/(\d+):(\d+)\s*(AM|PM)?/i);
+    if (!match) return 0;
+    let hours = parseInt(match[1], 10);
+    const minutes = parseInt(match[2], 10);
+    const ampm = match[3];
+    if (ampm) {
+      if (ampm.toUpperCase() === "PM" && hours < 12) hours += 12;
+      if (ampm.toUpperCase() === "AM" && hours === 12) hours = 0;
+    }
+    return hours * 60 + minutes;
+  };
 
-    setBuses({ results: filtered, loading: false, error: false, message: "" });
+  // 7. Sort by Journey Date (Earliest First), then Departure Time (Earliest First)
+  filtered.sort((a, b) => {
+    // Tier 1: Journey Date
+    const dateA = a.journeyDate ? new Date(a.journeyDate).getTime() : 0;
+    const dateB = b.journeyDate ? new Date(b.journeyDate).getTime() : 0;
+
+    if (dateA !== dateB) {
+      return dateA - dateB; // Soonest date comes first
+    }
+
+    // Tier 2: Departure Time on the same date
+    const timeA = getMinutesFromTime(a.departure_time);
+    const timeB = getMinutesFromTime(b.departure_time);
+
+    return timeA - timeB; // Earliest time comes first
+  });
+
+  setBuses({ results: filtered, loading: false, error: false, message: "" });
   };
 
   const handleSearch = () => {
