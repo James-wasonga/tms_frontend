@@ -83,7 +83,7 @@ const Search = () => {
   const [locations, setLocations] = useState({ results: [], loading: false });
   const [allBuses, setAllBuses] = useState([]);
   const [buses, setBuses] = useState({ results: [], loading: false, error: false, message: "" });
-  const [filter, setFilter] = useState({ type: null, price: 5000, seats: null });
+  const [filter, setFilter] = useState({ type: null, price: 5000, seats: null, operators: [] }); //add operators to filter state
 
   const [ticketInfo, setTicketInfo] = useState({
     pickupPoint: params?.pickupPoint !== "undefined" && params?.pickupPoint !== "all" ? params?.pickupPoint : "",
@@ -132,6 +132,22 @@ const Search = () => {
       });
   };
 
+  /// 
+  // Extract unique operator names from the bus list
+  const operatorOptions = Array.from(new Set(allBuses.map(bus => bus.name).filter(Boolean)));
+
+  // Toggle operator selection
+  const handleOperatorToggle = (operatorName) => {
+    setFilter(prev => {
+      const exists = prev.operators.includes(operatorName);
+      const updated = exists
+        ? prev.operators.filter(op => op !== operatorName)
+        : [...prev.operators, operatorName];
+      return { ...prev, operators: updated };
+    });
+  };
+  ///
+
   const applyLocalFilter = (list) => {
     let filtered = [...list];
     const from = ticketInfo.pickupPoint || params?.pickupPoint || "";
@@ -173,22 +189,27 @@ const Search = () => {
       });
     }
 
-    // 3. Filter by bus type
+    // 3. Filter by OPERATORS (Multi-select)
+    if (filter.operators.length > 0) {
+      filtered = filtered.filter(bus => filter.operators.includes(bus.name));
+    }
+
+    // 4. Filter by bus type
     if (filter.type) {
       filtered = filtered.filter(bus => bus.type === filter.type);
     }
 
-    // 4. Filter by max price
+    // 5. Filter by max price
     if (filter.price < 5000) {
       filtered = filtered.filter(bus => (bus.fare || 0) <= filter.price);
     }
 
-    // 5. Filter by seats
+    // 6. Filter by seats
     if (filter.seats) {
       filtered = filtered.filter(bus => bus.numberOfSeats === filter.seats);
     }
 
-    // 6. Sort by departure time (earliest first)
+    // 7. Sort by departure time (earliest first)
     filtered.sort((a, b) => {
       if (!a.departure_time) return 1;
       if (!b.departure_time) return -1;
@@ -322,7 +343,20 @@ const Search = () => {
         <aside className={`search-filters-sidebar${showFilter ? " open" : ""}`}>
           <div className="filters-head">
             <strong>Filters</strong>
-            <button onClick={() => setFilter({ type: null, price: 5000, seats: null })}>Reset</button>
+            <button onClick={() => setFilter({ type: null, price: 5000, seats: null, operators: [] })}>Reset</button>
+          </div>
+          {/* OPERATORS FILTER */}
+          <div className="filter-group">
+            <label className="filter-group-label">Operators</label>
+            {operatorOptions.length === 0 ? (
+              <small style={{ color: "#94a3b8" }}>No operators found</small>
+            ) : (
+              operatorOptions.map(op => (
+                <div key={op} className="filter-check" onClick={() => handleOperatorToggle(op)}>
+                  <FormCheck readOnly checked={filter.operators.includes(op)} /> <span>{op}</span>
+                </div>
+              ))
+            )}
           </div>
           <div className="filter-group">
             <label className="filter-group-label">Bus Type</label>
@@ -401,7 +435,7 @@ const Search = () => {
                   : "Try adjusting your filters or searching a different route."}
               </p>
               <button onClick={() => {
-                setFilter({ type: null, price: 5000, seats: null });
+                setFilter({ type: null, price: 5000, seats: null, operators: [] });
                 fetchBuses();
               }}>
                 Clear Filters &amp; Reload
