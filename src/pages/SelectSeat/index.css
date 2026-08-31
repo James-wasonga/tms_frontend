@@ -89,3 +89,61 @@
   padding-left: 2px;
 }
 
+/* Mobile View-Switching & Sticky Bar Additions */
+.mobile-back-btn {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: #16a34a;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 0 0 16px 0;
+  cursor: pointer;
+}
+
+.mobile-bottom-bar {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .mobile-hidden {
+    display: none !important;
+  }
+
+  .mobile-back-btn {
+    display: flex;
+  }
+
+  .mobile-bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 12px 16px;
+    border-top: 1.5px solid #e2e8f0;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+  }
+
+  .mobile-next-btn {
+    background: #16a34a;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .seat-map-panel {
+    padding-bottom: 70px;
+  }
+}
+

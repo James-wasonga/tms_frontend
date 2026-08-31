@@ -361,6 +361,16 @@ const SelectSeat = () => {
     }
   };
 
+  const handleGoToDetails = () => {
+    if (selectedSeats.length === 0) {
+      setToastError(true);
+      setToastMsg('Please select at least one seat first.');
+      return;
+    }
+    setMobileStep('details');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   // ── VALIDATION before proceeding ──────────────────────────────
   const handleProceed = () => {
     if (selectedSeats.length === 0) {
@@ -445,7 +455,7 @@ const SelectSeat = () => {
       ) : (
         <div className="seat-layout">
           {/* Left: Seat map */}
-          <div className="seat-map-panel">
+          <div className={`seat-map-panel ${mobileStep === 'details' ? 'mobile-hidden' : ''}`}>
             <div className="bus-info-strip">
               <FaBus size={20} color="#16a34a" />
               <div>
@@ -492,10 +502,27 @@ const SelectSeat = () => {
                 ))}
               </div>
             </div>
+
+            {selectedSeats.length > 0 && (
+              <div className="mobile-bottom-bar">
+                <div>
+                  <small style={{ color: '#64748b', fontSize: 12 }}>Total ({selectedSeats.length} seat{selectedSeats.length > 1 ? 's' : ''})</small>
+                  <div style={{ fontWeight: 800, fontSize: 18, color: '#0f172a' }}>
+                    Ksh {(fareCost * selectedSeats.length).toLocaleString()}
+                  </div>
+                </div>
+                <button className="mobile-next-btn" onClick={handleGoToDetails}>
+                  Passenger Details →
+                </button>
+              </div>
+            )}
           </div>
 
           {/* Right: Summary panel */}
-          <div className="seat-summary-panel">
+          <div className={`seat-summary-panel ${mobileStep === 'map' ? 'mobile-hidden' : ''}`}>
+              <button className="mobile-back-btn" onClick={() => setMobileStep('map')}>
+                <FiArrowLeft size={18} /> Back to Seat Map
+              </button>
             <h4 className="summary-title">
               Booking Summary
               {selectedSeats.length > 0 && (
