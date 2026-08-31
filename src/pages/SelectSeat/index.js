@@ -257,7 +257,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import "./index.css";
 import { Toast } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom';
-import { FiX, FiAlertCircle } from 'react-icons/fi';
+import { FiX, FiAlertCircle, FiArrowLeft } from 'react-icons/fi';
 import { FaBus } from 'react-icons/fa';
 import { DataURLS } from '../../utils/DataURLS';
 import Lottie from 'lottie-react';
@@ -279,6 +279,7 @@ const SelectSeat = () => {
   const [toastError, setToastError] = useState(false);
   const [bus, setBus] = useState({ error: false, loading: false, results: null });
   const [vehicle, setVehicle] = useState({ seatsConfiguration: { left: 2, right: 2 }, totalSeats: 0 });
+  const [mobileStep, setMobileStep] = useState('map'); 
 
   const ticketInfo = {
     pickupPoint: params?.pickupPoint,
@@ -313,6 +314,11 @@ const SelectSeat = () => {
         busSlug: params.slug
       }));
     } catch (e) {}
+
+    // Auto switch back to map view if user removes all seats on mobile
+    if (selectedSeats.length === 0 && mobileStep === 'details') {
+      setMobileStep('map');
+    }
   }, [selectedSeats]); // eslint-disable-line
 
   const createChunks = (total, left, right) => {
